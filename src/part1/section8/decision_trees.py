@@ -7,15 +7,13 @@ dataset = pd.read_csv('Position_Salaries.csv')
 x = dataset.iloc[:, 1:2].values
 y = dataset.iloc[:, 2:].values
 
-
 # regressor
 from sklearn.tree import DecisionTreeRegressor
 
-regressor = DecisionTreeRegressor(random_state=0)
+regressor = DecisionTreeRegressor(criterion='mse', random_state=0)
 regressor.fit(x, y)
 
 print('Result is {}'.format(regressor.predict(6.5)))
-
 
 # plt.scatter(x=x, y=y, color='red')
 # plt.plot(x, regressor.predict(x), color='blue', )
